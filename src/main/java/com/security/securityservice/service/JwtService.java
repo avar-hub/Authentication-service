@@ -19,11 +19,11 @@ public class JwtService {
 
     private static final String SECRET= "3e2f7603853edc2b696f88e2a9a3c523d2dfddcb4fbecd869bf0e31817daf24e";
 
-    public void validateToken(final String token) {
+    public void validateToken(String token) {
        Jwts.parserBuilder()
                .setSigningKey(getSigningKey())
                 .build()
-               .parseClaimsJwt(token);
+               .parseClaimsJws(token);
 
     }
     public String generateToken(String username) {
